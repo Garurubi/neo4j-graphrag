@@ -1,18 +1,18 @@
 REFERENCE_DATA_CNT: 10 # LLM 답변시 참조 데이터 수
-MODEL_NAME: meta-llama/Llama-3.1-8B-Instruct
+MODEL_NAME: Qwen/Qwen3-14B-AWQ
 
 postgresql:
-  host: 192.168.2.102
+  host: [postgres db url]
   database: social
   user: postgres
   password: postgres
-  port: 15432
+  port: 5432
 
 neo4j:
-  uri: neo4j://192.168.2.104:34102
+  uri: [neo4j db url] # 예: neo4j://192.168.2.104:24102
   user: neo4j
-  password: dnpdlqmdnpdj
+  password: noe4j
 
 openai:
-  api_key: EMPTY
-  base_url: http://192.168.2.106:8401/v1
+  api_key: EMPTY # vllm 서버 API 키
+  base_url: [vllm 서버 url] # 예: http://192.168.2.106:8401/v1

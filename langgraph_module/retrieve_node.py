@@ -1,5 +1,5 @@
 import requests
-import db_module
+from . import db_module
 from datetime import datetime
 from langchain_core.messages import AIMessage
 from prompt_template import SEARCH_RESULT
@@ -8,7 +8,7 @@ from config_loader import CONFIG
 
 REFERENCE_DATA_CNT = CONFIG["REFERENCE_DATA_CNT"]
 # postgresql
-conn = db_module.get_db_connection(
+conn = db_module.get_postgres_connection(
     CONFIG["postgresql"]["host"],
     CONFIG["postgresql"]["database"],
     CONFIG["postgresql"]["user"],
@@ -16,7 +16,7 @@ conn = db_module.get_db_connection(
     CONFIG["postgresql"]["port"]
 )
 # neo4j
-driver = db_module.get_neo4j_connection(
+driver = db_module.get_neo4j_driver(
     CONFIG["neo4j"]["uri"],
     auth=(CONFIG["neo4j"]["user"], CONFIG["neo4j"]["password"])
 )
